@@ -1,16 +1,21 @@
-/* - useSelector: truy cập trạng thái trong Redux từ các components React
-   - useDispatch: sử dụng để gửi các action đến reducers để cập nhật trạng thái của ứng dụng*/
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Home, Public, Login } from "./containers/public";
+import { Routes, Route, Router } from "react-router-dom";
 
 function App() {
-  const { test } = useSelector((state) => state.app);
-  console.log(test);
   return (
     <>
-      <div>App</div>
+      <div className="">
+        <Routes>
+          <Route path="/*" element={<Public />}>
+            <Route path="" element={<Home />} />
+            <Route path="login" element={<Login />} />
+          </Route>
+        </Routes>
+      </div>
       <ToastContainer
         position="top-right"
         autoClose={5000}

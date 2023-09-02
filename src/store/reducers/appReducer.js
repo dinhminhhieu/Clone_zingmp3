@@ -1,10 +1,7 @@
 // Lưu các state
 import actionType from "../actions/actionType";
 
-const initState = {
-  homeData: [],
-  test: "Hello 123",
-};
+const initState = {};
 
 const appReducer = (state = initState, action) => {
   switch (action.type) {
